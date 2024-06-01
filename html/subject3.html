@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA 3sem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/sub1.css">
+</head>
+<body>
+  <style>body {
+    background: linear-gradient(135deg, #3494e6, #ec6ead);
+   
+}</style>
+     <header>
+      <h1 class="title">BCA 3 SEM NOTES</h1>
+      <button  onclick="handelLogout()" class="logoutButton">Logout</button>
+     </header>
+
+    <div class="shop-section">
+      
+        <div class=" box">
+          <div class="box-content">
+            <h4>Data Communication and Computer Networks (Major)</h4>
+           <div class="box-img" style="background-image: url('../cheetsheets/3rrd/Data\ Communication\ and\ Computer\ Networks\ \(Major\).jpg')"></div>
+           <button class="btn" onclick="handelDownloadClick('../cheetsheets/ Computer Networking Notes for Tech Placements (1).pdf')"><i class="fa fa-download"></i> Download</button></a>
+           </div>
+        </div>
+      
+        <div class=" box"> <div class="box-content">
+          <h4>
+            Internet Applications Using Java Programming (Minor)</h4>
+          <div class="box-img" style="background-image: url('../cheetsheets/3rrd/Internet\ Applications\ Using\ Java\ Programming\ \(Minor\).jpg');"></div>
+          <button class="btn"onclick="handelDownloadClick('../cheetsheets/Java_Complete_Notes.pdf')"><i class="fa fa-download"></i> Download</button></a>
+          </div>
+        </div>
+    </div>
+
+    <div class="shop-section">
+    <div class="box"> <div class="box-content">
+      <h4>
+        E-commerce/Organization Behaviour(Open Elective)</h4>
+      <div class="box-img" style="background-image: url('../cheetsheets/3rrd/E-commerce\ Organization\ Behaviour\(Open\ Elective\).jpg');"></div>
+      <!-- Auto width -->
+      <button class="btn"onclick="handelDownloadClick('../cheetsheets/e commerce 2.pdf')"><i class="fa fa-download"></i> Download</button></a>
+      </div>
+    </div>
+  
+    <div class=" box"> <div class="box-content">
+      <h4>Web Designing- I (Vocational)</h4>
+      <div class="box-img" style="background-image: url('../cheetsheets/3rrd/Web\ Designing-\ I\ \(Vocational\).jpg');"></div>
+      <button class="btn"onclick="handelDownloadClick('../cheetsheets/ HTML_Complete_Notes.pdf')"><i class="fa fa-download"></i> Download</button></a>
+      </div>
+    </div>
+</div>
+  </body>
+  <script>
+    function handelDownloadClick(url){
+
+      // alert('hwllo')
+      let stringifyUser = localStorage.getItem('user')
+      // event.preventDefault();
+      console.log('stringifyUser', stringifyUser)
+      // if(stringifyUser){
+      //   alert(stringifyUser)
+      //   let user =  JSON.parse(stringifyUser)
+      //   if(user){
+      //   }else{
+      //   }
+      // }
+      // const uri = new URL('C:\Users\lenovo\Desktop\projects\Holkarians Ave\.dist\index.html')
+      // alert(uri)
+      
+      
+      // if()
+      const user = localStorage.getItem('user')
+      if(!user) {
+        location.href = 'loginS.html'
+        
+      }else{
+        location.href = url
+
+      }
+   
+    }
+
+    function handelLogout(){
+      localStorage.removeItem('user')
+      window.location.href = 'loginS.html'
+    }
+
+  </script>
+    </html>

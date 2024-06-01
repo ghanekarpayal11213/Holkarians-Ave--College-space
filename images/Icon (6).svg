@@ -1,0 +1,27 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="58.8108" height="58.8108" rx="13.9823" transform="matrix(1 0 0 -1 0 58.811)" fill="url(#paint0_linear_102_525)"/>
+<g filter="url(#filter0_b_102_525)">
+<rect width="58.8108" height="58.8108" rx="13.9823" transform="matrix(1 0 0 -1 9.18921 68)" fill="#EEEEEE" fill-opacity="0.61"/>
+<rect x="0.5" y="-0.5" width="57.8108" height="57.8108" rx="13.4823" transform="matrix(1 0 0 -1 9.18921 67)" stroke="white"/>
+</g>
+<mask id="mask0_102_525" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="24" y="23" width="30" height="32">
+<path d="M39 36C42.3137 36 45 33.3137 45 30C45 26.6863 42.3137 24 39 24C35.6863 24 33 26.6863 33 30C33 33.3137 35.6863 36 39 36Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52.5 54C52.5 46.5443 46.4557 40.5 39 40.5C31.5443 40.5 25.5 46.5443 25.5 54" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M39 54L42 50.25L39 40.5L36 50.25L39 54Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</mask>
+<g mask="url(#mask0_102_525)">
+<path d="M21 21H57V57H21V21Z" fill="#D78E4B"/>
+</g>
+<defs>
+<filter id="filter0_b_102_525" x="1.73198" y="1.73174" width="73.7252" height="73.7255" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="3.72861"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_102_525"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_102_525" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_102_525" x1="29.4054" y1="0" x2="29.4054" y2="58.8108" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FFAC60"/>
+<stop offset="1" stop-color="#FFE3C1" stop-opacity="0.34"/>
+</linearGradient>
+</defs>
+</svg>

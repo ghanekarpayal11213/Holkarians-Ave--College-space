@@ -1,0 +1,16 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 45" width="60" height="45">
+	<title>fast-svg</title>
+	<style>
+		.s0 { fill: #eef6fb;stroke: #e0e0e0 } 
+		.s1 { fill: none;stroke: #102447;stroke-linecap: round;stroke-miterlimit:10;stroke-width: 2 } 
+	</style>
+	<path id="Layer" class="s0" d="m-33.5-23c0-10.8 8.7-19.5 19.5-19.5h88c10.8 0 19.5 8.7 19.5 19.5v90c0 10.8-8.7 19.5-19.5 19.5h-88c-10.8 0-19.5-8.7-19.5-19.5z"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m21.8 13.4h21.8"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m21.8 20h9.5"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m3 4.2h7.2"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m5 10.1h4.2"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m7.4 16h1.8"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m41.2 33.2h14.3"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m48.4 40v-13.6"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m38.7 39.5h-20.1c-3.3 0-6-3-6-6.6v-22.3c0-3.6 2.7-6.6 6-6.6h31.5c3.2 0 5.9 3 5.9 6.6v13.1"/>
+</svg>

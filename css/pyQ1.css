@@ -1,0 +1,47 @@
+body h1{
+    text-align: center;
+  text-decoration: none;
+}
+/**shops section**/
+.shop-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #e2e7e6;
+   
+}
+.box{
+    height: 450px;
+    width: 28%;
+    background-color: #f3f3f3;
+    padding: 2px 0px 1px;
+    margin-top: 10px;
+}
+.box-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 20px;
+  
+}  
+.btn {
+   background-color: rgb(19, 72, 218);
+    text-decoration: none;
+    border-color: rgb(83, 202, 235);
+    border: none;
+    color: white;
+    margin-top: 1px;
+    margin-left: 55px;
+    padding: 12px 30px 1px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    height: max-content;
+    border-radius: 20px;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: RoyalBlue;
+   
+  }

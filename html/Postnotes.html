@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Notes</title>
+</head>
+<body>
+  <h1>Upload Your Notes</h1>
+  <form onsubmit="handelUploadNotes()" id="uploadnotes">
+    <textarea name="content" placeholder="Enter your notes here" required></textarea>
+    <br>
+    <button type="submit">Upload</button>
+  </form>
+</body>
+
+<script>
+    function handelInputChange(id){
+  const userName = document.getElementById(id)
+  uploadnotes[id] += userName.value
+
+  userName.value =  uploadnotes[id] 
+
+  }
+
+  function handelUploadNotes(){
+const button = document.getElementById('uploadnotes')
+fetch('http://localhost:8000/upload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(upload), // Convert the data to JSON format
+        })
+        .then(response => response.json()) // Assuming the response is JSON, you can use response.json() to parse it
+        .then(responseData => {
+            console.log('Response from server:', responseData);
+            // Handle the response data as needed
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Handle errors here
+        });
+    }
+    console.log(upload)
+
+  document.getElementById("uploadnotes").addEventListener("submit", function(event) {
+        // Prevent the default form submission behavior (page reload)
+        event.preventDefault();
+
+        // You can now perform custom actions here
+        // var inputValue = document.getElementById("myInput").value;
+        // console.log("Form submitted with value: " + inputValue);
+    });
+
+
+</script>
+</head>
+</html>
+
+</script>
+</html>

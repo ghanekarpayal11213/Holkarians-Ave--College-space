@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .form-container.signup {
+            transform: translateX(300px);
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            margin-bottom: 8px;
+        }
+
+        .form-container input {
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .form-container .switch {
+            margin-top: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .form-container .switch:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="loginForm">
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" required>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" required>
+
+        <button type="button" onclick="login()">Login</button>
+
+        <p class="switch" onclick="toggleForm()">Don't have an account? Sign up!</p>
+    </form>
+</div>
+
+<div class="form-container signup">
+    <form id="signupForm">
+        <label for="signupUsername">Username:</label>
+        <input type="text" id="signupUsername" required>
+
+        <label for="signupPassword">Password:</label>
+        <input type="password" id="signupPassword" required>
+
+        <button type="button" onclick="signup()">Sign up</button>
+
+        <p class="switch" onclick="toggleForm()">Already have an account? Login!</p>
+    </form>
+</div>
+
+<script>
+    function toggleForm() {
+        document.querySelector('.form-container').classList.toggle('signup');
+    }
+
+    function login() {
+        // Add your login logic here
+        alert('Login button clicked!');
+    }
+
+    function signup() {
+        // Add your signup logic here
+        alert('Sign up button clicked!');
+    }
+</script>
+
+</body>
+</html>

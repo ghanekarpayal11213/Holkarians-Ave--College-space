@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff sign up</title>
+    <link rel="stylesheet" href="/css/staffR.css">
+
+<body>
+    <form  onsubmit="handelFormSubmit()" id="signupForm" >
+        <div class="container">
+          <h1>Sign up</h1>
+          <p>Please fill in this form to sign up</p>
+          <hr>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input value="" onchange="handelInputChange('userName')"  type="text" placeholder="Enter Username" name="myInput" id="userName" required>
+
+          <label for="email"><b>Email</b></label>
+          <input onchange="handelInputChange('email')" type="text" placeholder="Enter Email" name="email" id="email" required>
+      
+          <label for="psw"><b> Create Password</b></label>
+          <input onchange="handelInputChange('password')" type="password" placeholder="Enter Password" name="psw" id="password" required>
+      
+         
+          
+          <button   onclick="message ()" type="submit" class="signupbtn" name="btn" value="Login" id="submitBtn">Sign up</button>
+          <p>already have an account <a href="loginS.html">Sign in</a>.</p>
+        
+        </div>
+       
+    </form>
+
+
+      <script>
+        // const password = document.getElementsByName('psw')
+        // const form = document.getElementsByTagName('form')
+        
+        // console.log('userName',)
+        // // console.log('userName', userName.value)
+        // // console.log('userName', password.values)
+        // const data  =  fetch('http://localhost:8000/signup',{method:'POST',body:{name:'maheshwar ghanekar'},headers:{'accept':'application/json'}}).then((r)=>console.log('r',r))
+        
+        // function handelInputChange(){
+        //   // const userName = document.getElementsByName('uname')
+        //   const userName = document.getElementById('myInput')
+        // console.log('userName', userName.value)
+        // const data  =  fetch('http://localhost:8000/signup',{method:'POST',body:{name:'maheshwar ghanekar'},headers:{'accept':'application/json'}}).then((r)=>console.log('r',r))
+      
+      
+        // }
+      
+        // function myFunction() {
+        //       // This function will be called when the value of the input box changes
+        //       var inputValue = document.getElementById("myInput").value;
+        //       console.log("Input value changed to: " + inputValue);
+        //   }
+      
+      // document.querySelector('input[name="uname"]').addEventListener('change',handelInputChange)
+      
+      
+      const signUp = {
+        userName:'',
+        email:'',
+        password:''
+        
+      }
+      
+       function handelInputChange(id){
+        const userName = document.getElementById(id)
+        signUp[id] += userName.value
+      
+        userName.value =  signUp[id] 
+      
+        }
+      
+        function handelFormSubmit(){
+      const button = document.getElementById('submitBtn')
+      fetch('http://localhost:8000/signup', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(signUp), // Convert the data to JSON format
+              })
+              .then(response => response.json()) // Assuming the response is JSON, you can use response.json() to parse it
+              .then(responseData => {
+                  console.log('Response from server:', responseData);
+                  // Handle the response data as needed
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  // Handle errors here
+              });
+          }
+          console.log(signUp)
+      
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+              // Prevent the default form submission behavior (page reload)
+              event.preventDefault();
+      
+              // You can now perform custom actions here
+              // var inputValue = document.getElementById("myInput").value;
+              // console.log("Form submitted with value: " + inputValue);
+          });
+      
+      
+      </script>
+      </head>
+      
+      
+</body>
+</html>

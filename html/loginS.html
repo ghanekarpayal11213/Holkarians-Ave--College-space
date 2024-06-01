@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signin form</title>
+  <link rel="stylesheet" href="/css/loginS.css">
+<body>
+  <form onsubmit="handelFormSubmit()" id="signinForm">
+    <div class="imgcontainer">
+      <img src="/pictures/img_avatar .jpg" class="avatar">
+    </div>
+  
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input value="" onchange="handelInputChange('userName')"  type="text" placeholder="Enter Username" name="myInput" id="userName" required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input onchange="handelInputChange('password')" type="password" placeholder="Enter Password" name="psw" id="password" required>
+  
+      <button   onclick="message ()" type="submit" class="loginbtn" name="btn" value="Login"
+       id="submitBtn" id="Username" id="password" required>Sign in</button>
+    
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+  
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn"><a link href="index.html">Cancel</a></button>
+      <span class="psw">don't have an account <a href="loginT.html">Sign up</a></span>
+    </div>
+  </form>
+
+</body>
+<script>
+  // const password = document.getElementsByName('psw')
+  // const form = document.getElementsByTagName('form')
+
+  // console.log('userName',)
+  // // console.log('userName', userName.value)
+  // // console.log('userName', password.values)
+  // const data  =  fetch('http://localhost:8000/signup',{method:'POST',body:{name:'maheshwar ghanekar'},headers:{'accept':'application/json'}}).then((r)=>console.log('r',r))
+
+  // function handelInputChange(){
+  //   // const userName = document.getElementsByName('uname')
+  //   const userName = document.getElementById('myInput')
+  // console.log('userName', userName.value)
+  // const data  =  fetch('http://localhost:8000/signup',{method:'POST',body:{name:'maheshwar ghanekar'},headers:{'accept':'application/json'}}).then((r)=>console.log('r',r))
+
+
+  // }
+
+  // function myFunction() {
+  //       // This function will be called when the value of the input box changes
+  //       var inputValue = document.getElementById("myInput").value;
+  //       console.log("Input value changed to: " + inputValue);
+  //   }
+
+  // document.querySelector('input[name="uname"]').addEventListener('change',handelInputChange)
+
+
+  const signIn = {
+    userName: '',
+    password: ''
+  }
+
+  function handelInputChange(id) {
+    const userName = document.getElementById(id)
+    signIn[id] += userName.value
+
+    userName.value = signIn[id]
+
+  }
+
+  function handelFormSubmit() {
+    const button = document.getElementById('submitBtn')
+    fetch('http://localhost:8000/signin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(signIn), // Convert the data to JSON format
+    })
+      .then(response =>{ response.json()
+        window.location.href = 'subject1.html';
+
+        localStorage.setItem('user',{})
+      }) // Assuming the response is JSON, you can use response.json() to parse it
+      .then(responseData => {
+        console.log('Response from server:', responseData);
+        // Handle the response data as needed
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors here
+      });
+  }
+  console.log(signIn)
+
+  document.getElementById("signinForm").addEventListener("submit", function (event) {
+    // Prevent the default form submission behavior (page reload)
+    event.preventDefault();
+
+    // You can now perform custom actions here
+    // var inputValue = document.getElementById("myInput").value;
+    // console.log("Form submitted with value: " + inputValue);
+
+
+    
+    const data = response.json();
+
+    // if (response.ok) {
+    //   console.log(data.message);
+    //   // Redirect to the specified URL upon successful sign-in
+     
+    // } else {
+    //   console.error(data.message);
+    // }
+  } 
+);
+
+
+ 
+</script>
+</head>
+</html>

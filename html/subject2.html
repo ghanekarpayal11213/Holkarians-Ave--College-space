@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCA 2sem</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/sub1.css">
+</head>
+<body>
+  <style>body {
+    background: linear-gradient(135deg, #3494e6, #ec6ead);
+   
+}</style>
+     <header>
+      <h1 class="title">BCA 2 SEM NOTES</h1>
+      <button onclick="handelLogout()" class="logoutButton">Logout</button>
+     </header>
+
+    <div class="shop-section">
+      
+        <div class=" box">
+          <div class="box-content">
+            <h4>Programming Methodology  Using C++ & Data Structures (Major)</h4>
+           <div class="box-img" style="background-image: url('../cheetsheets/2nd/Programming\ Methodology\ \ Using\ C++\ &\ Data\ Structures\ \(Major\).jpg')"></div>
+           <button class="btn"onclick="handelDownloadClick('../cheetsheets/DSA_CompleteNotes.pdf')"><i class="fa fa-download"></i> Download</button>
+        </div>
+        </div>
+      
+        <div class=" box"> <div class="box-content">
+          <h4>Operating Systems (Minor)</h4>
+          <div class="box-img" style="background-image: url('../cheetsheets/2nd/Operating\ Systems\ \(Minor\).jpg');"></div>
+          <button class="btn"onclick="handelDownloadClick('../cheetsheets/Operating System Notes.pdf')"><i class="fa fa-download"></i> Download</button>
+          </div>
+        </div>
+        <div class="box"> <div class="box-content">
+          <h4>NCC/NSS/Physical Education (Open Elective)</h4>
+          <div class="box-img" style="background-image: url('../cheetsheets/2nd/NCC-NSS-Physical\ Education\ \(Open\ Elective\).jpg');"></div>
+          <!-- Auto width -->
+          <button class="btn"onclick="handelDownloadClick('../cheetsheets/NCC-NSS-Physical Education.pdf')" ><i class="fa fa-download"></i> Download</button>
+          </div>
+        </div>
+    </div>
+
+    <div class="shop-section">
+    <div class=" box"> 
+      <div class="box-content">
+      <h4>Environmental Education (Foundation)</h4>
+      <div class="box-img" style="background-image: url('../cheetsheets/2nd/Environmental\ Education\ \(Foundation\).jpg ');"></div>
+      <button class="btn"onclick="handelDownloadClick('../cheetsheets/NCC-NSS-Physical Education.pdf')"><i class="fa fa-download"></i> Download</button>
+      </div>
+    </div>
+    <div class=" box"> 
+      <div class="box-content">
+      <h4>
+         Hindi Language (Foundation)</h4>
+      <div class="box-img" style="background-image: url('../cheetsheets/2nd/Hindi\ Language\ \(Foundation\).jpg');"></div>
+      <button class="btn" onclick="handelDownloadClick('../cheetsheets/NCC-NSS-Physical Education.pdf')"><i class="fa fa-download"></i> Download</button>
+      </div>
+    </div>
+</div>
+  </body>
+  <script>
+    function handelDownloadClick(url){
+
+      // alert('hwllo')
+      let stringifyUser = localStorage.getItem('user')
+      // event.preventDefault();
+      console.log('stringifyUser', stringifyUser)
+      // if(stringifyUser){
+      //   alert(stringifyUser)
+      //   let user =  JSON.parse(stringifyUser)
+      //   if(user){
+      //   }else{
+      //   }
+      // }
+      // const uri = new URL('C:\Users\lenovo\Desktop\projects\Holkarians Ave\.dist\index.html')
+      // alert(uri)
+      
+      
+      // if()
+      const user = localStorage.getItem('user')
+      if(!user) {
+        location.href = 'loginS.html'
+        
+      }else{
+        location.href = url
+
+      }
+   
+    }
+
+    function handelLogout(){
+      localStorage.removeItem('user')
+      window.location.href = 'loginS.html'
+    }
+
+  </script>
+    </html>

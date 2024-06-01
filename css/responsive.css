@@ -1,0 +1,65 @@
+@media (min-width: 320px) and (max-width: 786px) {
+	.mission-box {
+		margin-top: auto;
+	}
+
+	.banner-image {
+		height: auto;
+	}
+
+	.banner-box iframe {
+		height: 300px;
+		width: -webkit-fill-available;
+		width: -moz-available;
+		width: -webkit-stretch;
+		width: fill-available;
+	}
+
+	.bottom-service-box {
+		position: relative;
+		margin: auto;
+		bottom: auto;
+	}
+
+	.service-box {
+		height: auto;
+		margin-bottom: 20px;
+	}
+
+	.bottom-banner {
+		height: auto;
+		background-color: #102447;
+		padding: 40px 0px;
+	}
+
+	.counter-image {
+		height: 320px !important;
+		object-fit: cover;
+	}
+
+	.why-choose {
+		height: auto;
+	}
+
+	.service-box-main {
+		margin-bottom: auto;
+	}
+	.service-box-main-1 {
+		margin-bottom: auto;
+	}
+	.service-box-main .col-sm-6 {
+		position: relative;
+		right: auto;
+		margin-top: 20px;
+	}
+
+	.service-box-main-1 .col-sm-7 {
+		position: relative;
+		right: auto;
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+	.service-box-main-1 .col-sm-6 {
+		order: 1;
+	}
+}
