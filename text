@@ -1,0 +1,223 @@
+const { getPort, getMongoDbUrl } = require('./src/generator')
+const express = require('express')
+const app = express()
+const mongoose = require('mongoose')
+const { ValidationError } = require('express-validation')
+const cors = require('cors')
+const { getStocks, addStock, getOneStock } = require('./src/controllers/stock.controller')
+const { validate } = require('express-validation')
+const { addNewStock, getOneStockValidation } = require('./src/validations/stock.validation')
+// mongoose.connect(getMongoDbUrl()).then((result) => console.log("Database Connected Successfully.")).catch((e)=>console.log('e', e))
+const mysql = require('mysql2/promise');
+const connetion  = mysql.createPool({
+    host:'localhost',
+    user:'root',
+    database:'student-information',
+    port:'3306',
+    password:'Lucky@3352' 
+})
+// connetion.createPool((err)=>{
+//     if(err){
+//         console.error('Error connecting to MySQL: ' + err.stack);
+//     return;
+//     }
+//     console.log('Connected to MySQL as id ');
+// })
+app.use(express.json())
+app.use(cors())
+
+
+app.get('/api',(req,res)=>{
+    res.send("hello world")
+})
+app.get('',(req,res)=>{
+    res.send('home')
+})
+app.get('/api/stocks', (request, response) => getStocks(request, response))
+app.post('/api/stocks', validate(addNewStock), (request, response) => addStock(request, response))
+app.get('/api/stocks/:id',(request,response)=>getOneStock(request, response))
+
+// app.use('/api/stocks', stockRoutes)
+
+app.use(function (error, request, response, next) {
+    if (error instanceof ValidationError) {
+        return response.status(error.statusCode).json({ status: false, message: error.details.body[0].message })
+    }
+
+})
+
+
+app.post('/signin', async (req,res)=>{
+    // console.log(req.body)
+//     connetion.query(`CREATE TABLE students (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(255) NOT NULL,
+//     password VARCHAR(255) NOT NULL
+// );
+// `,(err)=>{
+//     if(err){
+//         console.log('err', err)
+//     }
+//     console.log('created')
+// })
+try{
+const {userName,password} = req.body
+const isUserExist = false
+const user  = await connetion.query(`SELECT * FROM STUDENTS WHERE username = '${userName}'`)
+console.log('user', user[0].length)
+if(user[0].length){
+return res.send({message:'Already'})
+}
+
+ const createdUser = await connetion.query(`
+ INSERT INTO students (username, password) VALUES ('${userName}','${password}')`)
+
+return res.send({message:'created'})
+}catch(err){
+    res.send({message:'erro'})
+}
+})
+
+app.post('/signup', async (req,res)=>{
+    // console.log(req.body)
+//     connetion.query(`CREATE TABLE student_details (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(255) NOT NULL,
+//     password VARCHAR(255) NOT NULL,
+//     email    VARCHAR(255) NOT NULL
+
+// );
+// `,(err)=>{
+//     if(err){
+//         console.log('err', err)
+//     }
+//     console.log('created')
+// })
+try{
+const {userName,password,email} = req.body
+const isUserExist = false
+const user  = await connetion.query(`SELECT * FROM STUDENT_DETAILS WHERE username = '${userName}'`)
+console.log('user', user[0].length)
+if(user[0].length){
+return res.send({message:'Already'})
+}
+
+const createdUser = await connetion.query(`
+INSERT INTO student_details (username, password,email) VALUES ('${userName}','${password}','${email}')`)
+
+return res.send({message:'created'})
+}catch(err){
+    res.send({message:'erro'})
+}
+
+})
+
+
+
+app.listen(getPort(), () => {
+    console.log(`Application Is Running On Port ${getPort()}.`)
+})
+
+module.exports = app;
+
+
+
+
+
+
+app.post('/signin', async (req,res)=>{
+    // console.log(req.body)
+//     connetion.query(`CREATE TABLE students (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(255) NOT NULL,
+//     password VARCHAR(255) NOT NULL
+// );
+// `,(err)=>{
+//     if(err){
+//         console.log('err', err)
+//     }
+//     console.log('created')
+// })
+try{
+const {userName,password} = req.body
+const isUserExist = true
+//check if user exist in the student_details table
+const checkSql  = `SELECT userName AND password FROM userName= '${userName}' and password= '${password}' `;
+await connetion.query(checkSql,[userName,password], (err, results)=>{
+    if(err) throw err;
+    //if user exist in the signup data,allow signin
+    if(results.length > 0){
+        res.redirect("/subject1.html")
+        }else {
+            res.status(401).send('User not found. Please sign up first.');
+          }
+        })
+    }     
+catch(err){
+     res.send({message:'erro'})
+     }
+})
+
+
+ 
+   
+// console.log('user', user[0].length)
+//const createdUser = await connetion.query(`
+ //INSERT INTO students (username, password) VALUES ('${userName}','${password}')`)
+//console.log(createdUser);
+// return res.send({message:'created'})
+
+
+app.post('/signup', async (req,res)=>{
+    console.log(req.body)
+//     connetion.query(`CREATE TABLE student_details (
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     username VARCHAR(255) NOT NULL,
+//     password VARCHAR(255) NOT NULL,
+//     email    VARCHAR(255) NOT NULL
+// );
+// `,(err)=>{
+//     if(err){
+//         console.log('err', err)
+//     }
+//     console.log('created')
+// });
+try{
+const {userName,password,email} = req.body
+
+//const user  = await connetion.query(`SELECT * FROM STUDENT_DETAILS WHERE username = '${userName}', password='${password}', email='${email}`)
+console.log('user', user[0].length);
+// if(user[0].length){
+// return res.send({message:'Already'})
+// }
+
+const createdUser = await connetion.query(`
+INSERT INTO student_details (username, password,email) VALUES ('${userName}','${password}','${email}')`)
+return res.send('User signed up successfully!');
+}catch(err){
+    res.send({message:'erro'})
+}
+})
+
+app.post('/signup', (req, res) => {
+    const { name, email, password } = req.body;
+    db.query('INSERT INTO student_details (name, email, password) VALUES (?, ?, ?)', [name, email, password], (err, result) => {
+        if (err) throw err;
+        req.session.user = { id: result.insertId, name, email, password };
+        res.status(200).send('User created successfully');
+    });
+});
+
+app.post('/signin', (req, res) => {
+    const { email, password } = req.body;
+    db.query('SELECT * FROM users WHERE username = ? AND password = ?', [username, password], (err, result) => {
+        if (err) throw err;
+        if (result.length === 0) {
+            res.status(401).send('Invalid username or password')
+        } else {
+            const user = result[0];
+            req.session.user = { id: user.id, name: user.name, email: user.email, password: user.password };
+            res.status(200).send('User signed in successfully');
+        }
+    });
+});

@@ -1,0 +1,34 @@
+{
+  "name": "mock_stock_api",
+  "version": "1.0.0",
+  "description": "API / Data Processing System For Web Application Of Stock Price Mock.",
+  "main": "api/index.js",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start:local": "nodemon index.js",
+    "type": "module",
+    "start:prod": "node api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vercel-build": "echo hello"
+  },
+  "author": "chetan rathor",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validation": "^4.1.0",
+    "joi": "^17.11.0",
+    "mongoose": "^7.6.3",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "nodemon": "^3.0.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}
